@@ -1,0 +1,86 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "DM Sans", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background-image: url("media/bg_03.jpg");
+  background-size: cover;
+}
+
+.container {
+  background-color: rgba(255, 255, 255, 0.1);
+  width: min(90%, 500px);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 4em 2em;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 0.5em;
+  backdrop-filter: blur(7px);
+}
+
+button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.section-container {
+  display: flex;
+  gap: 1em;
+  justify-content: center;
+}
+
+.btn {
+  padding: 1em 2em;
+  border-radius: 0.5em;
+}
+
+.btn-focus {
+  background-color: #d7d6d6;
+}
+
+.time-btn-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2em;
+}
+
+#time {
+  text-align: center;
+  color: #ffffff;
+  font-size: 5em;
+  font-weight: 600;
+}
+
+.btn-container {
+  display: flex;
+  gap: 2em;
+  justify-content: center;
+}
+
+#btn-start,
+#btn-pause,
+#btn-reset {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: #ffffff;
+}
+
+svg {
+  width: 3em;
+  height: 3em;
+  fill: #ffffff;
+}
+
+.hide {
+  display: none;
+}
