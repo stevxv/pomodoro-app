@@ -23,6 +23,14 @@ if (localStorage.getItem("background")) {
   }
 }
 
+if (localStorage.getItem("theme")) {
+  const selectedTheme = localStorage.getItem("theme");
+  const body = document.querySelector("body");
+  if (selectedTheme !== "light") {
+    body.classList.add("dark-mode");
+  }
+}
+
 time.textContent = `${minCount + 1}:00`;
 
 const appendZero = (num) => {
@@ -146,4 +154,15 @@ document.getElementById("btn-close").addEventListener("click", function () {
   close.classList.add("hide");
   modal.classList.remove("show");
   modal.classList.add("hide");
+});
+
+document.getElementById("theme").addEventListener("change", function () {
+  const selectedTheme = this.value;
+  const body = document.querySelector("body");
+  if (selectedTheme !== "light") {
+    body.classList.add("dark-mode");
+  } else {
+    body.classList.remove("dark-mode");
+  }
+  localStorage.setItem("theme", selectedTheme);
 });

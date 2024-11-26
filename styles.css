@@ -1,5 +1,31 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
 
+:root {
+  --primary-color: rgb(38, 38, 38);
+  --border-color: rgba(255, 255, 255, 0.18);
+  --bg-color: rgba(255, 255, 255, 0.425);
+  --hover-color: #4d4d4d;
+  --btn-bg-color: rgba(0, 0, 0, 0.1);
+  --btn-focus-color: #ffffff7e;
+  --modal-bg-color: rgba(255, 255, 255, 0.6);
+  --modal-select-bg-color: rgba(0, 0, 0, 0.1);
+  --modal-container-bg-color: rgba(27, 27, 27, 0.3);
+  --modal-select-border-color: #ffffff2e;
+}
+
+.dark-mode {
+  --primary-color: #ffffff;
+  --border-color: rgba(0, 0, 0, 0.18);
+  --bg-color: rgba(0, 0, 0, 0.425);
+  --hover-color: #ffffff;
+  --btn-bg-color: rgba(255, 255, 255, 0.1);
+  --btn-focus-color: #0000007e;
+  --modal-bg-color: rgba(0, 0, 0, 0.6);
+  --modal-select-bg-color: rgba(255, 255, 255, 0.1);
+  --modal-container-bg-color: rgba(27, 27, 27, 0.3);
+  --modal-select-border-color: #0000002e;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -11,25 +37,27 @@ body {
   min-height: 100vh;
   background-image: url("media/bg_01.webp");
   background-size: cover;
+  transition: all 0.3s ease;
 }
 
 .container {
-  background-color: rgba(255, 255, 255, 0.425);
+  background-color: var(--bg-color);
   width: min(90%, 500px);
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   padding: 4em 2em;
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 1px solid var(--border-color);
   border-radius: 1em;
   backdrop-filter: blur(7px);
 }
 
 button {
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 1px solid var(--border-color);
   border-radius: 0.5em;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: var(--btn-bg-color);
+  color: var(--primary-color);
   outline: none;
   cursor: pointer;
   font-size: 15px;
@@ -44,11 +72,10 @@ button {
 
 .btn {
   padding: 1em 2em;
-  /* border-radius: 0.5em; */
 }
 
 .btn-focus {
-  background-color: #ffffff7e;
+  background-color: var(--btn-focus-color);
   transition: all 0.5s ease;
 }
 
@@ -60,7 +87,7 @@ button {
 
 #time {
   text-align: center;
-  color: rgb(38, 38, 38);
+  color: var(--primary-color);
   font-size: 5em;
   font-weight: 600;
 }
@@ -77,17 +104,16 @@ button {
   background-color: transparent;
   border: none;
   outline: none;
-  color: #ffffff;
 }
 
 svg {
   width: 3em;
   height: 3em;
-  fill: rgb(38, 38, 38);
+  fill: var(--primary-color);
 }
 
 svg:hover {
-  fill: #4d4d4d;
+  fill: var(--hover-color);
   transition: all 0.5s ease;
 }
 
@@ -97,8 +123,8 @@ svg:hover {
 }
 
 .btn-settings {
-  background-color: rgba(255, 255, 255, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  background-color: var(--bg-color);
+  border: var(--border-color);
   border-radius: 50%;
   position: absolute;
   margin: 1em;
@@ -113,7 +139,7 @@ svg:hover {
   width: 30px;
   height: 30px;
   align-self: center;
-  fill: rgb(38, 38, 38);
+  fill: var(--primary-color);
 }
 
 .settings-modal {
@@ -126,13 +152,13 @@ svg:hover {
   align-items: center;
   justify-content: center;
   border-radius: 0.5em;
-  background: rgba(27, 27, 27, 0.3);
+  background: var(--modal-container-bg-color);
   z-index: 1;
 }
 
 .modal-content {
-  background-color: rgba(255, 255, 255, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  background-color: var(--modal-bg-color);
+  border: 1px solid var(--border-color);
   width: 350px;
   padding: 2em;
   border-radius: 0.5em;
@@ -140,14 +166,14 @@ svg:hover {
 }
 
 .modal-content h3 {
-  color: black;
+  color: var(--primary-color);
   font-size: 1.5em;
   font-weight: 800;
   margin-bottom: 20px;
 }
 
 .modal-content label {
-  color: black;
+  color: var(--primary-color);
   font-size: 1em;
   font-weight: 400;
 }
@@ -158,11 +184,12 @@ svg:hover {
   font-weight: 800;
   padding: 0.5em;
   margin: 0.5em 0;
-  border: 1px solid #ffffff2e;
+  border: 1px solid var(--modal-select-border-color);
   border-radius: 0.5em;
-  background-color: rgba(0, 0, 0, 0.1);
-  color: black;
+  background-color: var(--modal-select-bg-color);
+  color: var(--primary-color);
   outline: none;
+  margin-bottom: 20px;
 }
 
 .btn-close {
@@ -178,14 +205,6 @@ svg:hover {
 .btn-close svg {
   width: 1.5em;
   height: 1.5em;
-  fill: black;
+  fill: var(--primary-color);
   margin: 0.5em;
 }
-
-/* @media (max-width: 768px) {
-  .modal-content {
-    width: 200px;
-    top: 15%;
-    left: 60%;
-  }
-} */
