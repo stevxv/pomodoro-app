@@ -6,11 +6,22 @@ let startBtn = document.getElementById("btn-start");
 let resetBtn = document.getElementById("btn-reset");
 let pauseBtn = document.getElementById("btn-pause");
 let time = document.getElementById("time");
+let settings = document.getElementById("btn-settings");
+let close = document.getElementById("btn-close");
+let modal = document.getElementById("settings-modal");
 let set;
 let active = "focus";
 let count = 59;
 let paused = true;
 let minCount = 24;
+
+if (localStorage.getItem("background")) {
+  const selectedBackground = localStorage.getItem("background");
+  document.body.style.backgroundImage = "";
+  if (selectedBackground !== "default") {
+    document.body.style.backgroundImage = `url("media/${selectedBackground}")`;
+  }
+}
 
 time.textContent = `${minCount + 1}:00`;
 
@@ -30,7 +41,7 @@ resetBtn.addEventListener(
       case "short":
         minCount = 4;
         break;
-      default:
+      case "focus":
         minCount = 24;
         break;
     }
@@ -48,6 +59,7 @@ const removeFocus = () => {
 };
 
 focusButton.addEventListener("click", () => {
+  active = "focus";
   removeFocus();
   focusButton.classList.add("btn-focus");
   pauseTimer();
@@ -113,4 +125,25 @@ startBtn.addEventListener("click", () => {
       }
     }, 1000);
   }
+});
+
+settings.addEventListener("click", function () {
+  modal.classList.remove("hide");
+  modal.classList.add("show");
+  close.classList.remove("hide");
+});
+
+document.getElementById("background").addEventListener("change", function () {
+  const selectedBackground = this.value;
+  document.body.style.backgroundImage = "";
+  if (selectedBackground !== "default") {
+    document.body.style.backgroundImage = `url("media/${selectedBackground}")`;
+  }
+  localStorage.setItem("background", selectedBackground);
+});
+
+document.getElementById("btn-close").addEventListener("click", function () {
+  close.classList.add("hide");
+  modal.classList.remove("show");
+  modal.classList.add("hide");
 });

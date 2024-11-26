@@ -14,7 +14,7 @@ body {
 }
 
 .container {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.425);
   width: min(90%, 500px);
   position: absolute;
   top: 50%;
@@ -22,14 +22,18 @@ body {
   transform: translate(-50%, -50%);
   padding: 4em 2em;
   border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 0.5em;
+  border-radius: 1em;
   backdrop-filter: blur(7px);
 }
 
 button {
-  border: none;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 0.5em;
+  background-color: rgba(0, 0, 0, 0.1);
   outline: none;
   cursor: pointer;
+  font-size: 15px;
+  font-weight: 400;
 }
 
 .section-container {
@@ -40,11 +44,12 @@ button {
 
 .btn {
   padding: 1em 2em;
-  border-radius: 0.5em;
+  /* border-radius: 0.5em; */
 }
 
 .btn-focus {
-  background-color: #d7d6d6;
+  background-color: #ffffff7e;
+  transition: all 0.5s ease;
 }
 
 .time-btn-container {
@@ -55,7 +60,7 @@ button {
 
 #time {
   text-align: center;
-  color: #ffffff;
+  color: rgb(38, 38, 38);
   font-size: 5em;
   font-weight: 600;
 }
@@ -78,9 +83,109 @@ button {
 svg {
   width: 3em;
   height: 3em;
-  fill: #ffffff;
+  fill: rgb(38, 38, 38);
+}
+
+svg:hover {
+  fill: #4d4d4d;
+  transition: all 0.5s ease;
 }
 
 .hide {
   display: none;
+  visibility: hidden;
 }
+
+.btn-settings {
+  background-color: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 50%;
+  position: absolute;
+  margin: 1em;
+  right: 0;
+  height: 45px;
+  width: 45px;
+  display: flex;
+  justify-content: center;
+}
+
+.btn-settings svg {
+  width: 30px;
+  height: 30px;
+  align-self: center;
+  fill: rgb(38, 38, 38);
+}
+
+.settings-modal {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5em;
+  background: rgba(27, 27, 27, 0.3);
+  z-index: 1;
+}
+
+.modal-content {
+  background-color: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  width: 350px;
+  padding: 2em;
+  border-radius: 0.5em;
+  backdrop-filter: blur(100px);
+}
+
+.modal-content h3 {
+  color: black;
+  font-size: 1.5em;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+.modal-content label {
+  color: black;
+  font-size: 1em;
+  font-weight: 400;
+}
+
+.modal-content select {
+  width: 100%;
+  font-size: 1em;
+  font-weight: 800;
+  padding: 0.5em;
+  margin: 0.5em 0;
+  border: 1px solid #ffffff2e;
+  border-radius: 0.5em;
+  background-color: rgba(0, 0, 0, 0.1);
+  color: black;
+  outline: none;
+}
+
+.btn-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.btn-close svg {
+  width: 1.5em;
+  height: 1.5em;
+  fill: black;
+  margin: 0.5em;
+}
+
+/* @media (max-width: 768px) {
+  .modal-content {
+    width: 200px;
+    top: 15%;
+    left: 60%;
+  }
+} */
