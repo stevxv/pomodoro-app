@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pomodoro</title>
     <link rel="stylesheet" href="styles.css" />
+    <link id="icon" rel="icon" type="image/png" href="media/icon-black.svg" />
   </head>
   <body>
     <header>
-      <button id="btn-settings" class="btn-settings">
+      <button id="btn-settings" class="btn-settings" title="Settings">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           height="24px"
@@ -45,6 +46,9 @@
             <option value="bg_01.webp">Forest</option>
             <option value="bg_02.webp">Flowers</option>
             <option value="bg_03.webp">River</option>
+            <option value="bg_04.webp">Moon</option>
+            <option value="bg_05.webp">Vegetables</option>
+            <option value="bg_06.webp">Library</option>
           </select>
           <label for="theme">Appearance</label>
           <select id="theme">
@@ -64,7 +68,7 @@
       <div class="time-btn-container">
         <span id="time"></span>
         <div class="btn-container">
-          <button id="btn-start" class="show">
+          <button id="btn-start" class="show" title="Start">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               height="24px"
@@ -75,7 +79,7 @@
               <path d="M320-200v-560l440 280-440 280Z" />
             </svg>
           </button>
-          <button id="btn-pause" class="hide">
+          <button id="btn-pause" class="hide" title="Pause">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               height="24px"
@@ -86,7 +90,7 @@
               <path d="M560-200v-560h160v560H560Zm-320 0v-560h160v560H240Z" />
             </svg>
           </button>
-          <button id="btn-reset" class="hide">
+          <button id="btn-reset" class="hide" title="Reset">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               height="24px"
@@ -102,6 +106,17 @@
         </div>
       </div>
     </div>
+    <script>
+      const setIcon = (theme) => {
+        const icon = document.getElementById("icon");
+        icon.href = theme.matches
+          ? "media/icon-white.svg"
+          : "media/icon-black.svg";
+      };
+      const darkTheme = window.matchMedia("(prefers-color-scheme: dark)");
+      setIcon(darkTheme);
+      darkTheme.addEventListener("change", setIcon);
+    </script>
     <script src="script.js"></script>
   </body>
 </html>
